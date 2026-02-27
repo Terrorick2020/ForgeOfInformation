@@ -1,0 +1,9 @@
+**/.vscode
+**/ssl
+**/node_modules
+**/build
+**/dist
+
+**/bun.lock
+**/.env
+**/*.pem

@@ -1,0 +1,18 @@
+@import url("./fonts.css");
+@import url("./preloader.css");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    width: 100vw;
+    height: 100vh;
+    background: #c6c6d1;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+}

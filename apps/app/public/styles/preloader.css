@@ -1,0 +1,130 @@
+@keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1 }
+    to { opacity: 0 }
+}
+
+@keyframes spinRotate {
+    from { transform: rotate(0) }
+    to { transform: rotate(360deg) }
+}
+
+@keyframes dotsLoad {
+    from { content: ""; }
+    33% { content: "."; }
+    66% { content: ".."; }
+    to { content: "..."; }
+}
+
+#root {
+    opacity: 0;
+    display: none;
+}
+
+#preloader {
+    --pre-bg: #d6d7df;
+    --pre-color: #2b2a2e;
+
+    width: 100vw;
+    height: 100vh;
+    background: var(--pre-bg);
+    gap: 12.5vh;
+    opacity: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn ease-in 1.5s forwards;
+}
+
+
+#preloader .pre-banner, #preloader .pre-spinner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#preloader .pre-banner .banner__text, #preloader .pre-spinner .spinner__text {
+    margin-top: clamp(
+        1.5rem,
+        5vmax,
+        2rem
+    );
+    text-align: center;
+    color: var(--pre-color);
+}
+
+#preloader .pre-banner {
+    height: 60%;
+    justify-content: flex-end;
+
+    @media (max-height: 650px) {
+        height: 80%;
+    }
+}
+
+#preloader .pre-banner .banner__text {
+    font-family: 'CoFoGothic', sans-serif;
+    font-weight: 300;
+    font-size: clamp(
+        1.5rem,
+        1.6vmax,
+        1.9rem
+    );
+}
+
+#preloader .pre-spinner {
+    justify-content: flex-start;
+    height: 20%;
+
+    @media (max-height: 650px) {
+        height: 19%;
+    }
+}
+
+
+#preloader .pre-banner .banner__img {
+    width: clamp(
+        320px,
+        25vmax,
+        450px
+    );
+    height: auto;
+}
+
+#preloader .pre-spinner .spinner__spin {
+    width: clamp(
+        2rem,
+        2.5vmax,
+        2.8rem
+    );
+    aspect-ratio: 1 / 1;
+    border: 5px solid color-mix(
+        in srgb,
+        var(--pre-bg) 90%,
+        #282828 10%
+    );
+    border-top: 5px solid var(--pre-color);
+    border-radius: 50%;
+    animation: spinRotate linear 1.2s infinite;
+}
+
+#preloader .pre-spinner .spinner__text {
+    position: relative;
+    font-family: 'CoFoMilligram', sans-serif;
+    font-weight: 600;
+}
+
+#preloader .pre-spinner .spinner__text::after {
+    content: "";
+    position: absolute;
+    animation: dotsLoad ease-in 1.2s infinite;
+}

@@ -1,0 +1,14 @@
+@use "@/shared/assets/styles" as vars;
+@use "@/shared/assets/styles" as mixins;
+
+.default-layout {
+    width: 100vw;
+    height: 100vh;
+    @include mixins.tmplFlex();
+
+    .dl-box {
+        max-width: vars.$maxViewportWidth ;
+        min-width: vars.$minViewportWidth ;
+        @include mixins.whFull();
+    }
+}

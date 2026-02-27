@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'CoFoGothic';
+    src: url('/fonts/co-fo-gothic.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CoFoMilligram';
+    src: url('/fonts/co-fo-milligram.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+html, body, #root {
+    font-family: 'CoFoGothic', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
