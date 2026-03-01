@@ -1,0 +1,42 @@
+@use "@/shared/assets/styles" as funcs;
+@use "@/shared/assets/styles" as mixins;
+
+.inner-block-ui {
+  --ib-glob-backup: #{funcs.pxToRem(10)};
+  --ib-inner-backup: #{funcs.pxToRem(7.5)};
+
+  overflow: hidden;
+  @include mixins.whFull();
+  @include mixins.tmplFlex();
+
+  &.glob {
+    --ib-padd-block: var(--glob-padd-block, var(--ib-glob-backup));
+    --ib-padd-inline: var(--glob-padd-inline, var(--ib-glob-backup));
+  }
+
+  &.local {
+    --ib-padd-block: var(--inner-padd-block, var(--ib-glob-backup));
+    --ib-padd-inline: var(--inner-padd-inline, var(--ib-glob-backup));
+  }
+
+  &.glob,
+  &.local {
+    .block,
+    .inline,
+    .full {
+      overflow: hidden;
+      @include mixins.whFull();
+      @include mixins.tmplFlex();
+    }
+
+    .block,
+    .full {
+      padding-block: var(--ib-padd-block);
+    }
+
+    .inline,
+    .full {
+      padding-inline: var(--ib-padd-inline);
+    }
+  }
+}

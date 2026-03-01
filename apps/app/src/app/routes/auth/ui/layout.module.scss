@@ -1,1 +1,7 @@
-.auth-layout {}
+@use "@/shared/assets/styles" as mixins;
+
+.auth-layout {
+  overflow: hidden;
+  background: var(--theme-app-color);
+  @include mixins.whFull();
+}

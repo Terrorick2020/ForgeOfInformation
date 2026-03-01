@@ -8,3 +8,5 @@ export const rootAnimeMs = {
   widgets: 1000,
   block: 750,
 } as const;
+
+export const themeAttrName: string = 'data-theme';

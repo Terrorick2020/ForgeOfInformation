@@ -1,0 +1,23 @@
+@use "@/shared/assets/styles" as mixins;
+@use "@/shared/assets/styles" as funcs;
+
+.button {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    border-radius: clamp(0.45rem, 0.55vmax, 0.75rem);
+    height: funcs.pxToRem(40);
+
+    &__ctx {
+        border: none;
+        outline: none;
+        padding-inline: clamp(0.6rem, 0.6vmax, 0.9rem);
+        color: inherit;
+        @include mixins.whFull();
+        @include mixins.tmplFlex();
+
+        .btn-txt, .btn-icon {
+            color: inherit;
+        }
+    }
+}

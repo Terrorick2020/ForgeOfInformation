@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --root-base-perc: 40%;
+    --root-exte-perc: 20%;
+
+    --root-base-color: #14213d;
+    --root-neutral-color: #8d99ae;
+    --root-accent-color: #245ace;
+    --root-light-color: #edf2f4;
+    --root-dark-color: #13161f;
+}
+
+html, body {
+    background: color-mix(
+        in srgb,
+        var(--root-base-color) var(--root-base-perc),
+        var(--root-neutral-color) var(--root-exte-perc)
+    );
+}
+
+html, body, #root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    overscroll-behavior: none;
+}

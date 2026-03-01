@@ -15,5 +15,9 @@ export type TLazyLoadFn<T extends any = {}> = () => Promise<{
 }>;
 
 export interface ITmplCompProps {
-  children: JSX.Element | JSX.Element[]
+  children: JSX.Element | JSX.Element[];
+}
+
+export interface ITmplUiProps extends ITmplCompProps {
+  addClass?: string;
 }

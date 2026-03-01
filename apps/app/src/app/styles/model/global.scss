@@ -1,0 +1,104 @@
+@use "@/shared/assets/styles" as funcs;
+
+:root {
+  --root-sel-bg: none;
+  --root-sel-color: none;
+  --root-scrtr-color: none;
+  --root-scrth-color: none;
+  --root-mixer-color: none;
+
+  --root-err-color: #FF4365;
+  --root-succ-color: #1DD800;
+  --root-warn-color: #D7FF81;
+  --root-prim-color: #522E99;
+
+  --glob-padd-block: clamp(1.5rem, 5vh, 2rem);
+  --glob-padd-inline: clamp(1.5rem, 5vw, 2rem);
+  --inner-padd-block: clamp(1rem, 3vw, 1.5rem);
+  --inner-padd-inline: clamp(1rem, 3vw, 1.5rem);
+}
+
+::selection {
+  background: var(--root-sel-bg);
+  color: var(--root-sel-color);
+}
+
+*::-webkit-scrollbar {
+  width: funcs.pxToRem(7.5);
+  height: auto;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--root-scrtr-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--root-scrth-color);
+  border-radius: funcs.pxToRem(10);
+
+  &:hover {
+    background: color-mix(
+      in oklab,
+      var(--root-scrth-color) 85%,
+      var(--root-mixer-color) 15%
+    );
+  }
+}
+
+[data-theme="light"] {
+  --theme-app-color: color-mix(
+    in srgb,
+    var(--root-base-color) 30%,
+    var(--root-light-color) 70%
+  );
+  --theme-frtblock-color: color-mix(
+    in srgb,
+    color-mix(
+      in srgb,
+      var(--root-base-color) 35%,
+      var(--root-accent-color) 45%
+    ),
+    var(--root-light-color) 25%
+  );
+  --theme-light-color: color-mix(
+    in srgb,
+    var(--root-neutral-color) 30%,
+    var(--root-light-color) 70%
+  );
+  --theme-dark-color: color-mix(
+    in srgb,
+    var(--root-neutral-color) 30%,
+    var(--root-dark-color) 70%
+  );
+}
+
+[data-theme="dark"] {
+  --theme-app-color: color-mix(
+    in srgb,
+    var(--root-base-color) 30%,
+    var(--root-dark-color) 70%
+  );
+  --theme-frtblock-color: color-mix(
+    in srgb,
+    color-mix(
+      in srgb,
+      var(--root-base-color) 35%,
+      var(--root-accent-color) 45%
+    ),
+    var(--root-dark-color) 25%
+  );
+  --theme-light-color: color-mix(
+    in srgb,
+    var(--root-neutral-color) 30%,
+    var(--root-light-color) 70%
+  );
+  --theme-dark-color: color-mix(
+    in srgb,
+    var(--root-neutral-color) 30%,
+    var(--root-dark-color) 70%
+  );
+}
+
+#root {
+  background: var(--theme-app-color);
+}

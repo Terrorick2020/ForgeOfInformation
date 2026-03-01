@@ -1,8 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ETheme, type IRootStoreSettings } from './types';
+import { ETheme, EProfileRoles, EProfileStatus } from '@libs/config';
+import type { IRootStoreSettings } from './types';
 
 const initialState: IRootStoreSettings = {
   theme: ETheme.Light,
+  status: EProfileStatus.Active,
+  role: EProfileRoles.None,
 }
 
 const settSliceName: string = 'settings-slice';

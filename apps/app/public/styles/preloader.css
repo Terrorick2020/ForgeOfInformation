@@ -26,12 +26,31 @@
 }
 
 #preloader {
-    --pre-bg: #d6d7df;
-    --pre-color: #2b2a2e;
+    --prel-light-color: color-mix(
+        in srgb,
+        var(--root-base-color) var(--root-base-perc),
+        var(--root-light-color) var(--root-exte-perc)
+    );
+    --prel-neutral-color: color-mix(
+        in srgb,
+        var(--root-base-color) var(--root-base-perc),
+        var(--root-neutral-color) var(--root-exte-perc)
+    );
+    --prel-dark-color: color-mix(
+        in srgb,
+        var(--root-base-color) var(--root-base-perc),
+        var(--root-dark-color) var(--root-exte-perc)
+    );
 
     width: 100vw;
     height: 100vh;
-    background: var(--pre-bg);
+    background: linear-gradient(
+        45deg,
+        var(--prel-dark-color) 15%,
+        var(--prel-neutral-color) 85%,
+        var(--prel-light-color) 100%
+    );
+    backdrop-filter: blur(1rem);
     gap: 12.5vh;
     opacity: 0;
     overflow: hidden;
@@ -43,7 +62,6 @@
     align-items: center;
     animation: fadeIn ease-in 1.5s forwards;
 }
-
 
 #preloader .pre-banner, #preloader .pre-spinner {
     width: 100%;
@@ -58,8 +76,18 @@
         5vmax,
         2rem
     );
+    font-size: clamp(
+        1.5rem,
+        1.6vmax,
+        1.9rem
+    );
+    color: color-mix(
+        in srgb,
+        var(--root-dark-color) 100%,
+        var(--root-accent-color) 5%
+    );
     text-align: center;
-    color: var(--pre-color);
+    user-select: none;
 }
 
 #preloader .pre-banner {
@@ -74,11 +102,6 @@
 #preloader .pre-banner .banner__text {
     font-family: 'CoFoGothic', sans-serif;
     font-weight: 300;
-    font-size: clamp(
-        1.5rem,
-        1.6vmax,
-        1.9rem
-    );
 }
 
 #preloader .pre-spinner {
@@ -98,6 +121,7 @@
         450px
     );
     height: auto;
+    user-select: none;
 }
 
 #preloader .pre-spinner .spinner__spin {
@@ -107,13 +131,15 @@
         2.8rem
     );
     aspect-ratio: 1 / 1;
-    border: 5px solid color-mix(
-        in srgb,
-        var(--pre-bg) 90%,
-        #282828 10%
-    );
-    border-top: 5px solid var(--pre-color);
     border-radius: 50%;
+    border-width: 0.25rem;
+    border-style: solid;
+    border-color: var(--prel-light-color);
+    border-top-color: color-mix(
+        in srgb,
+        var(--prel-dark-color) 95%,
+        var(--root-accent-color) 5%
+    );
     animation: spinRotate linear 1.2s infinite;
 }
 

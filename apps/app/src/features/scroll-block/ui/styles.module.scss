@@ -1,0 +1,46 @@
+@use "@/shared/assets/styles" as mixins;
+
+.scroll-block-ui {
+  --scrl-parrent-bg: transparent;
+  --scrl-shadow-h: clamp(0.8rem, 2vh, 1.2rem);
+  overflow: hidden;
+  @include mixins.whFull();
+
+  .content {
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    @include mixins.whFull();
+    @include mixins.tmplFlex();
+
+    &.scrollable {
+      padding-block: var(--scrl-shadow-h);
+      @include mixins.tmplBefAft(var(--scrl-shadow-h));
+    }
+
+    &.scrollable::before {
+      top: 0;
+      background: linear-gradient(
+        to bottom,
+        var(--scrl-parrent-bg) 45%,
+        transparent 100%
+      );
+    }
+
+    &.scrollable::after {
+      bottom: 0;
+      background: linear-gradient(
+        to top,
+        var(--scrl-parrent-bg) 45%,
+        transparent 100%
+      );
+    }
+
+    &__box {
+      width: auto;
+      height: auto;
+      flex: 1;
+      @include mixins.tmplFlex();
+    }
+  }
+}

@@ -4,11 +4,15 @@
 .default-layout {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
+    background: var(--theme-app-color);
     @include mixins.tmplFlex();
 
     .dl-box {
-        max-width: vars.$maxViewportWidth ;
-        min-width: vars.$minViewportWidth ;
+        overflow: hidden;
+        max-width: #{vars.$maxViewportWidth}px ;
+        min-width: #{vars.$minViewportWidth}px ;
+        background: var(--theme-app-color);
         @include mixins.whFull();
     }
 }
