@@ -1,6 +1,6 @@
-import type { ITmplCompProps } from "@/shared";
+import type { ITmplUiProps } from "@/shared";
 
-export interface IInnerBlockUiProps extends ITmplCompProps {
+export interface IInnerBlockUiProps extends ITmplUiProps {
   boxType?: EIBUiBoxType;
   innerType?: EIBUiInnerType;
 }

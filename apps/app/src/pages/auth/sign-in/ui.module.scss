@@ -1,12 +1,8 @@
 @use "@/shared/assets/styles" as mixins;
 
 .sign-in-page {
-    overflow: hidden;
-    background: var(--theme-app-color);
-    @include mixins.whFull();
-    @include mixins.tmplFlex();
-
-    .add-scrl-class {
-        --scrl-parrent-bg: var(--theme-app-color);
-    }
+  overflow: hidden;
+  background: var(--theme-bg-color);
+  @include mixins.whFull();
+  @include mixins.tmplFlex();
 }

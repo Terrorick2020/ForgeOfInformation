@@ -5,7 +5,7 @@ import type { IRootStoreSettings } from './types';
 const initialState: IRootStoreSettings = {
   theme: ETheme.Light,
   status: EProfileStatus.Active,
-  role: EProfileRoles.None,
+  role: EProfileRoles.Admin,
 }
 
 const settSliceName: string = 'settings-slice';

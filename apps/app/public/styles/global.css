@@ -2,25 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
 }
 
 :root {
-    --root-base-perc: 40%;
-    --root-exte-perc: 20%;
-
-    --root-base-color: #14213d;
-    --root-neutral-color: #8d99ae;
-    --root-accent-color: #245ace;
-    --root-light-color: #edf2f4;
-    --root-dark-color: #13161f;
+    --glob-tertiary-color: #eebbc3;
+    --glob-secondary-color: #fffffe;
+    --glob-bg-color: #d1d1e9;
+    --glob-font-color: #232946;
 }
 
-html, body {
-    background: color-mix(
-        in srgb,
-        var(--root-base-color) var(--root-base-perc),
-        var(--root-neutral-color) var(--root-exte-perc)
-    );
+::selection {
+  background: var(--glob-tertiary-color);
+  color: var(--glob-secondary-color);
 }
 
 html, body, #root {
@@ -28,4 +22,6 @@ html, body, #root {
     height: 100vh;
     overflow: hidden;
     overscroll-behavior: none;
+    background: var(--glob-bg-color);
+    color: var(--glob-font-color);
 }

@@ -1,104 +1,128 @@
 @use "@/shared/assets/styles" as funcs;
 
 :root {
-  --root-sel-bg: none;
-  --root-sel-color: none;
-  --root-scrtr-color: none;
-  --root-scrth-color: none;
-  --root-mixer-color: none;
+  --theme-sel-bg-color: none;
+  --theme-sel-font-color: none;
+  --theme-scrtr-color: none;
+  --theme-scrth-color: none;
+  --theme-unmixer-color: transparent;
+  --theme-mixer-color: transparent;
 
-  --root-err-color: #FF4365;
-  --root-succ-color: #1DD800;
-  --root-warn-color: #D7FF81;
-  --root-prim-color: #522E99;
+  --root-success-color: #00ebc7;
+  --root-warning-color: #faae2b;
+  --root-error-color: #f4446d;
 
-  --glob-padd-block: clamp(1.5rem, 5vh, 2rem);
-  --glob-padd-inline: clamp(1.5rem, 5vw, 2rem);
-  --inner-padd-block: clamp(1rem, 3vw, 1.5rem);
-  --inner-padd-inline: clamp(1rem, 3vw, 1.5rem);
+  --root-spec-1-color: #232946;
+  --root-spec-2-color: #3da9fc;
+  --root-spec-3-color: #ffc0ad;
+
+  --root-widget-br: clamp(1rem, 1.2vmax, 1.2rem);
+  --root-feature-br: clamp(0.9rem, 1.15vmax, 1.1rem);
+  --root-block-br: clamp(0.8rem, 1.1vmax, 1rem);
 }
 
 ::selection {
-  background: var(--root-sel-bg);
-  color: var(--root-sel-color);
+  background: var(--theme-sel-bg-color);
+  color: var(--theme-sel-font-color);
 }
 
-*::-webkit-scrollbar {
-  width: funcs.pxToRem(7.5);
-  height: auto;
-}
+* {
+  @supports (scrollbar-color: auto) {
+    scrollbar-color: var(--theme-scrth-color) var(--theme-scrtr-color);
+  }
 
-*::-webkit-scrollbar-track {
-  background: var(--root-scrtr-color);
-}
+  @supports selector(::-webkit-scrollbar) {
+    &::-webkit-scrollbar {
+      width: funcs.pxToRem(8);
+      height: 100%;
+    }
+  }
 
-*::-webkit-scrollbar-thumb {
-  background: var(--root-scrth-color);
-  border-radius: funcs.pxToRem(10);
+  @supports selector(::-webkit-scrollbar-track) {
+    &::-webkit-scrollbar-track {
+      background: var(--theme-scrtr-color);
+    }
+  }
 
-  &:hover {
-    background: color-mix(
-      in oklab,
-      var(--root-scrth-color) 85%,
-      var(--root-mixer-color) 15%
-    );
+  @supports selector(::-webkit-scrollbar-thumb) {
+    &::-webkit-scrollbar-thumb {
+      background: var(--theme-scrth-color);
+      border-radius: pxToRem(10);
+      background-clip: padding-box;
+    }
   }
 }
 
 [data-theme="light"] {
-  --theme-app-color: color-mix(
-    in srgb,
-    var(--root-base-color) 30%,
-    var(--root-light-color) 70%
-  );
-  --theme-frtblock-color: color-mix(
-    in srgb,
-    color-mix(
-      in srgb,
-      var(--root-base-color) 35%,
-      var(--root-accent-color) 45%
-    ),
-    var(--root-light-color) 25%
-  );
-  --theme-light-color: color-mix(
-    in srgb,
-    var(--root-neutral-color) 30%,
-    var(--root-light-color) 70%
-  );
-  --theme-dark-color: color-mix(
-    in srgb,
-    var(--root-neutral-color) 30%,
-    var(--root-dark-color) 70%
-  );
+  --theme-sel-bg-color: #eebbc3eb;
+  --theme-sel-font-color: #fffffee9;
+  --theme-scrtr-color: #c6962f;
+  --theme-scrth-color: #8c7851;
+
+  --theme-unmixer-color: #1e233ad5;
+  --theme-mixer-color: #f1f1f6d0;
+
+  --theme-bg-color: #fffffe;
+  --theme-card-color: #d1d1e9;
+  --theme-stroke-color: #2b2c34;
+
+  --theme-btn-bg-color: #6246ea;
+  --theme-btn-font-color: #fffffe;
+
+  --theme-link-font-color: #6246ea;
+  --theme-link-decor-color: #6146eadf;
+
+  --theme-input-bg-color: #fffffe;
+  --theme-input-label-color: #2b2c34;
+  --theme-input-placeholder-color: #2b2c34d5;
+  --theme-input-font-color: #2b2c34;
+
+  --theme-headline-color: #2b2c34;
+  --theme-subheadline-color: #363740;
+  --theme-paragraph-color: #343540;
+
+  --theme-icon-stroke-color: #2b2c34;
+  --theme-icon-main-color: #fffffe;
+  --theme-icon-highlight-color: #513cb7;
+  --theme-icon-secondary-color: #d1d1e9;
+  --theme-icon-tertiary-color: #e45858;
 }
 
 [data-theme="dark"] {
-  --theme-app-color: color-mix(
-    in srgb,
-    var(--root-base-color) 30%,
-    var(--root-dark-color) 70%
-  );
-  --theme-frtblock-color: color-mix(
-    in srgb,
-    color-mix(
-      in srgb,
-      var(--root-base-color) 35%,
-      var(--root-accent-color) 45%
-    ),
-    var(--root-dark-color) 25%
-  );
-  --theme-light-color: color-mix(
-    in srgb,
-    var(--root-neutral-color) 30%,
-    var(--root-light-color) 70%
-  );
-  --theme-dark-color: color-mix(
-    in srgb,
-    var(--root-neutral-color) 30%,
-    var(--root-dark-color) 70%
-  );
+  --theme-sel-bg-color: #3b8d6be0;
+  --theme-sel-font-color: #a4a8b3;
+  --theme-scrtr-color: #0f0e17;
+  --theme-scrth-color: #373149;
+
+  --theme-unmixer-color: #f1f1f6d0;
+  --theme-mixer-color: #1e233ad5;
+
+  --theme-bg-color: #242629;
+  --theme-card-color: #16161a;
+  --theme-stroke-color: #010101;
+
+  --theme-btn-bg-color: #7f5af0;
+  --theme-btn-font-color: #fffffe;
+
+  --theme-link-font-color: #7f5af0;
+  --theme-link-decor-color: #7050d2dd;
+
+  --theme-input-bg-color: #16161a;
+  --theme-input-label-color: #fffffe;
+  --theme-input-placeholder-color: #e8eaeb73;
+  --theme-input-font-color: #fffffe;
+
+  --theme-headline-color: #fffffe;
+  --theme-subheadline-color: #a0acbb;
+  --theme-paragraph-color: #94a1b2;
+
+  --theme-icon-stroke-color: #010101;
+  --theme-icon-main-color: #fffffe;
+  --theme-icon-highlight-color: #7f5af0;
+  --theme-icon-secondary-color: #72757e;
+  --theme-icon-tertiary-color: #2cb67d;
 }
 
-#root {
-  background: var(--theme-app-color);
+html, body, #root {
+  background: var(--theme-bg-color);
 }

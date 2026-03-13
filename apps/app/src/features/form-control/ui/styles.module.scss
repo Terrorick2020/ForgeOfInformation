@@ -1,0 +1,31 @@
+@use "@/shared/assets/styles" as funcs;
+@use "@/shared/assets/styles" as mixins;
+
+.form-control {
+    width: 100%;
+    gap: clamp(
+        #{funcs.pxToRem(6)},
+        1vh,
+        #{funcs.pxToRem(10)}
+    );
+    @include mixins.tmplFlex(column, center, flex-start);
+
+    &__label {
+        font-weight: 500;
+    }
+
+    &__err {
+        margin-left: 0.8rem;
+        color: var(--root-error-color, red);
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+
+        * {
+            color: var(--root-error-color, red);
+        }
+    }
+
+    .inp-add-class {
+        height: funcs.pxToRem(45);
+    }
+}

@@ -1,1 +1,7 @@
-.admin-layout {}
+@use "@/shared/assets/styles" as mixins;
+
+.admin-layout {
+  overflow: hidden;
+  background: var(--theme-bg-color);
+  @include mixins.whFull();
+}

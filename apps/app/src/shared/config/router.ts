@@ -5,12 +5,14 @@ export const appMarkName = 'mark' as const;
 export const appRoutes = {
   pref: APP_PREF,
   admin: {
+    isSpecBlock: false,
     glob: '/admine',
     local: {
       users: 'users',
     }
   },
   auth: {
+    isSpecBlock: false,
     glob: '/auth',
     local: {
       signIn: 'sign-in',
@@ -18,6 +20,7 @@ export const appRoutes = {
     }
   },
   home: {
+    isSpecBlock: true,
     glob: '/home',
     local: {
       chat: 'chat',

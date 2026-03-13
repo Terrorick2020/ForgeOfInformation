@@ -1,7 +1,6 @@
-import AnimeUi from "./anime/ui";
-import InputTxtUi from "./input-txt/ui";
-import FrontBlockUi from './front-block/ui';
-
-export { AnimeUi, InputTxtUi, FrontBlockUi };
-
+export * from "./anime";
 export * from "./inner-block";
+export * from "./input-txt";
+export * from "./spinner";
+export * from "./logo";
+export * from "./icon-button";

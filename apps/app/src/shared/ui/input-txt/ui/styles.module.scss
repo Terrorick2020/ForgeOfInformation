@@ -1,0 +1,36 @@
+@use "@/shared/assets/styles" as funcs;
+@use "@/shared/assets/styles" as mixins;
+
+.input-txt-ui {
+    --base-inp-txt-h: #{funcs.pxToRem(30)};
+
+    width: 100%;
+    height: var(--base-inp-txt-h);
+    min-height: var(--base-inp-txt-h);
+    background: var(--theme-input-bg-color);
+    padding-inline: funcs.pxToRem(5);
+    border-radius: clamp(0.7rem, 0.78vmax, 0.9rem);
+    border: 1.75px solid transparent;
+    overflow: hidden;
+
+    span {
+        display: block;
+    }
+
+    &:hover {
+        box-shadow: 0 0 1.5px var(--theme-stroke-color);
+    }
+
+    &:focus-within {
+        border-color: var(--theme-stroke-color);
+        box-shadow: 0 0 3px var(--theme-stroke-color);
+    }
+
+    input {
+        border: none;
+        outline: none;
+        background: var(--theme-input-bg-color);
+        padding-inline: funcs.pxToRem(8);
+        @include mixins.whFull();
+    }
+}

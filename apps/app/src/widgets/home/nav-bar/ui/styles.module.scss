@@ -1,0 +1,20 @@
+@use "@/shared/assets/styles" as mixins;
+
+
+.home-nav-bar {
+    background: var(--theme-card-color);
+    @include mixins.whFull();
+
+    &__ctx {
+        @include mixins.whFull();
+        @include mixins.tmplFlex(row, space-between);
+
+        .navigate ul {
+            list-style: none;
+        }
+
+        .btns {
+
+        }
+    }
+}

@@ -2,22 +2,48 @@
 @use "@/shared/assets/styles" as funcs;
 
 .button {
+    --base-btn-h: #{funcs.pxToRem(40)};
+    --inner-btn-bg: var(--theme-btn-bg-color, white);
+    --inner-btn-color: var(--theme-btn-font-color, black);
+
     width: auto;
     height: auto;
     overflow: hidden;
     border-radius: clamp(0.45rem, 0.55vmax, 0.75rem);
-    height: funcs.pxToRem(40);
+    height: var(--base-btn-h);
+    min-height: var(--base-btn-h);
+    transition: transform 0.1s linear, box-shadow 0.2s linear;
+    background: var(--inner-btn-bg);
+    color: var(--inner-btn-color);
+
+    &:hover {
+        box-shadow: 0 0 8px var(--inner-btn-bg);
+    }
+
+    &:active {
+        transform: scale(0.96);
+    }
 
     &__ctx {
         border: none;
         outline: none;
-        padding-inline: clamp(0.6rem, 0.6vmax, 0.9rem);
+        padding-inline: clamp(0.6rem, 1vmax, 1rem);
+        gap: clamp(1rem, 1.2vmax, 1.25rem);
         color: inherit;
         @include mixins.whFull();
         @include mixins.tmplFlex();
 
-        .btn-txt, .btn-icon {
+        span {
+            display: block;
             color: inherit;
+
+            &:not(&.btn-txt) {
+                height: 100%;
+            }
         }
     }
+}
+
+.spin-add-class {
+    height: 65%;
 }

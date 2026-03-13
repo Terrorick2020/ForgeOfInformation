@@ -1,9 +1,0 @@
-@use "@/shared/assets/styles" as mixins;
-
-.front-block-ui {
-    overflow: hidden;
-    border-radius: clamp(0.5rem, 0.8vmax, 0.8rem);
-    padding-inline: var(--glob-padd-inline, 0.6rem);
-    padding-block: var(--inner-padd-block, 0.4rem);
-    @include mixins.whFull();
-}

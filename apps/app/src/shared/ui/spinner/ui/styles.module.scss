@@ -1,0 +1,28 @@
+.spinner-ui {
+    --base-spin-color: currentColor;
+    --base-spin-max-size: 3rem;
+    --base-spin-min-size: 0.8rem;
+
+    @keyframes spinRotate {
+        from { transform: rotate(0) }
+        to { transform: rotate(360deg) }
+    }
+
+    min-width: var(--base-spin-min-size);
+    width: auto;
+    max-width: var(--base-spin-max-size);
+    min-height: var(--base-spin-min-size);
+    height: 100%;
+    max-height: var(--base-spin-max-size);
+    border-radius: 50%;
+    border-width: 0.25rem;
+    border-style: solid;
+    aspect-ratio: 1 / 1;
+    border-color: color-mix(
+        in srgb,
+        var(--base-spin-color) 80%,
+        var(--theme-unmixer-color, #ffffff) 30%,
+    );
+    border-top-color: var(--base-spin-color);
+    animation: spinRotate linear 1.3s infinite;
+}

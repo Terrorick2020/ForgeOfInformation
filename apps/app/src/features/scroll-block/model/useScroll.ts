@@ -1,15 +1,17 @@
 import { useRef, useState, useEffect } from "react";
 
 export const useScroll = () => {
+  const contRef = useRef<HTMLDivElement | null>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
-  const [isScrble, setIsScrble] = useState<boolean>(true);
+  const [isScrble, setIsScrble] = useState<boolean>(false);
 
   useEffect(() => {
-    const el = boxRef.current;
-    if (!el) return;
+    const contEl = contRef.current;
+    const boxEl = boxRef.current;
+    if (!contEl || !boxEl) return;
 
     const checkScrollable = () => {
-      setIsScrble(el.scrollHeight > el.clientHeight);
+      setIsScrble(contEl.clientHeight < boxEl.scrollHeight);
     };
 
     checkScrollable();
@@ -20,5 +22,5 @@ export const useScroll = () => {
     };
   }, []);
 
-  return { boxRef, isScrble };
+  return { boxRef, contRef, isScrble };
 };

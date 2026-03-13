@@ -1,24 +1,58 @@
 @use "@/shared/assets/styles" as mixins;
 
 body,
+label,
 h5,
 h6,
 p,
-a {
+a,
+input,
+input > * {
   font-family: "CoFoGothic", sans-serif;
   font-style: normal;
   font-weight: 400;
-  color: var(--theme-light-color);
 }
 
 h1,
 h2,
 h3,
-h4 {
+h4,
+th,
+figcaption,
+legend,
+figcaption,
+button,
+button > * {
   font-family: "CoFoMilligram", sans-serif;
   font-style: normal;
   font-weight: 600;
-  color: var(--theme-light-color);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--theme-headline-color);
+}
+
+h4,
+h5,
+th,
+label,
+figcaption,
+legend,
+figcaption {
+  color: var(--theme-subheadline-color);
+}
+
+a {
+  color: var(--theme-link-font-color);
+  text-decoration: underline;
+  text-decoration-color: var(--theme-link-decor-color);
+}
+
+h6,
+p {
+  color: var(--theme-paragraph-color);
 }
 
 h1 {
@@ -36,9 +70,38 @@ h4 {
 h5 {
   @include mixins.fluidText(24, 20);
 }
-h6 {
+h6,
+label,
+caption,
+legend,
+button,
+button > *
+{
   @include mixins.fluidText(20, 18);
 }
-p, a {
+input,
+input > * {
+  @include mixins.fluidText(19, 17);
+}
+p,
+a,
+figcaption {
   @include mixins.fluidText(16, 14);
+}
+
+button, button > * {
+  background: var(--theme-btn-bg-color);
+  color: var(--theme-btn-font-color);
+}
+
+input, input > * {
+  color: var(--theme-input-font-color);
+  background: var(--theme-input-bg-color);
+  border-color: var(--theme-stroke-color);
+  outline-color: var(--theme-stroke-color);
+  font-weight: 500;
+
+  &::placeholder {
+    color: var(--theme-input-placeholder-color);
+  }
 }

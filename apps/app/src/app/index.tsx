@@ -1,7 +1,7 @@
 import type { JSX } from "react";
-import { LazyLoader } from "./providers";
+import { LazyAppLoader } from "./providers";
 
 export function App(): JSX.Element {
   const jsxProm = async () => import("./Combiner");
-  return <LazyLoader jsxProm={jsxProm} />;
+  return <LazyAppLoader jsxProm={jsxProm} />;
 }

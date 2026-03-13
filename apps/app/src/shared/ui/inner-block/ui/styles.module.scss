@@ -2,21 +2,21 @@
 @use "@/shared/assets/styles" as mixins;
 
 .inner-block-ui {
-  --ib-glob-backup: #{funcs.pxToRem(10)};
-  --ib-inner-backup: #{funcs.pxToRem(7.5)};
+  --ib-glob-padd: clamp(0.8rem, 1.25vmax, 1.2rem);
+  --ib-inner-padd: clamp(0.6rem, 1vmax, 1rem);
 
   overflow: hidden;
   @include mixins.whFull();
   @include mixins.tmplFlex();
 
   &.glob {
-    --ib-padd-block: var(--glob-padd-block, var(--ib-glob-backup));
-    --ib-padd-inline: var(--glob-padd-inline, var(--ib-glob-backup));
+    --ib-padd-block: var(--ib-glob-padd, #{funcs.pxToRem(10)});
+    --ib-padd-inline: var(--ib-glob-padd, #{funcs.pxToRem(10)});
   }
 
   &.local {
-    --ib-padd-block: var(--inner-padd-block, var(--ib-glob-backup));
-    --ib-padd-inline: var(--inner-padd-inline, var(--ib-glob-backup));
+    --ib-padd-block: var(--ib-inner-padd, #{funcs.pxToRem(7.5)});
+    --ib-padd-inline: var(--ib-inner-padd, #{funcs.pxToRem(7.5)});
   }
 
   &.glob,

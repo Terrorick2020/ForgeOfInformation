@@ -1,10 +1,10 @@
-import LazyLoader from './lazy-loader/ui';
+import LazyAppLoader from './lazy-app-loader/ui';
 import Store from './store/ui';
 import Router from './router/ui';
 import Theme from './theme/ui';
 
 export {
-  LazyLoader,
+  LazyAppLoader,
   Store,
   Router,
   Theme,

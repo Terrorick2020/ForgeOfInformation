@@ -2,6 +2,6 @@
 
 .auth-layout {
   overflow: hidden;
-  background: var(--theme-app-color);
+  background: var(--theme-bg-color);
   @include mixins.whFull();
 }

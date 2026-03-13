@@ -1,0 +1,12 @@
+.vscode/
+.github/
+node_modules/
+dist/
+ssl/
+
+.env.example
+.gitignore
+bun.lock
+package.lock.json
+Dockerfile
+README.md

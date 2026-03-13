@@ -26,36 +26,13 @@
 }
 
 #preloader {
-    --prel-light-color: color-mix(
-        in srgb,
-        var(--root-base-color) var(--root-base-perc),
-        var(--root-light-color) var(--root-exte-perc)
-    );
-    --prel-neutral-color: color-mix(
-        in srgb,
-        var(--root-base-color) var(--root-base-perc),
-        var(--root-neutral-color) var(--root-exte-perc)
-    );
-    --prel-dark-color: color-mix(
-        in srgb,
-        var(--root-base-color) var(--root-base-perc),
-        var(--root-dark-color) var(--root-exte-perc)
-    );
-
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(
-        45deg,
-        var(--prel-dark-color) 15%,
-        var(--prel-neutral-color) 85%,
-        var(--prel-light-color) 100%
-    );
-    backdrop-filter: blur(1rem);
+    background: transparent;
     gap: 12.5vh;
     opacity: 0;
     overflow: hidden;
     overscroll-behavior: none;
-    touch-action: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,13 +58,7 @@
         1.6vmax,
         1.9rem
     );
-    color: color-mix(
-        in srgb,
-        var(--root-dark-color) 100%,
-        var(--root-accent-color) 5%
-    );
     text-align: center;
-    user-select: none;
 }
 
 #preloader .pre-banner {
@@ -101,7 +72,7 @@
 
 #preloader .pre-banner .banner__text {
     font-family: 'CoFoGothic', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 #preloader .pre-spinner {
@@ -122,6 +93,8 @@
     );
     height: auto;
     user-select: none;
+    touch-action: none;
+    pointer-events: none;
 }
 
 #preloader .pre-spinner .spinner__spin {
@@ -134,13 +107,9 @@
     border-radius: 50%;
     border-width: 0.25rem;
     border-style: solid;
-    border-color: var(--prel-light-color);
-    border-top-color: color-mix(
-        in srgb,
-        var(--prel-dark-color) 95%,
-        var(--root-accent-color) 5%
-    );
-    animation: spinRotate linear 1.2s infinite;
+    border-color: var(--glob-secondary-color);
+    border-top-color: var(--glob-tertiary-color);
+    animation: spinRotate linear 1.3s infinite;
 }
 
 #preloader .pre-spinner .spinner__text {

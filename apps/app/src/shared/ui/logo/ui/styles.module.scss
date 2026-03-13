@@ -1,0 +1,38 @@
+@use "@/shared/assets/styles" as mixins;
+
+.logo-ui {
+  height: 75%;
+  max-width: 50%;
+  gap: 0.75vw;
+  overflow: hidden;
+  @include mixins.tmplFlex(row, flex-start);
+
+  &__svgr {
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+
+    svg {
+      @include mixins.whFull();
+
+      g {
+        path {
+          stroke-width: 1;
+          stroke: var(--theme-icon-stroke-color, transparent);
+        }
+      }
+    }
+  }
+
+  &__txt {
+    overflow: hidden;
+    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0.25rem;
+
+    > * {
+        @include mixins.tmplTxtHide();
+    }
+  }
+}

@@ -1,3 +1,31 @@
+img,
+svg {
+  touch-action: none;
+  pointer-events: none;
+}
+
+svg {
+  .main {
+    fill: var(--theme-icon-main-color);
+    color: var(--theme-icon-main-color);
+  }
+
+  .secondary {
+    fill: var(--theme-icon-secondary-color);
+    color: var(--theme-icon-secondary-color);
+  }
+
+  .highlight {
+    fill: var(--theme-icon-highlight-color);
+    color: var(--theme-icon-highlight-color);
+  }
+
+  .tertiary {
+    fill: var(--theme-icon-tertiary-color);
+    color: var(--theme-icon-tertiary-color);
+  }
+}
+
 figure,
 img,
 svg,

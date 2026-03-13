@@ -1,0 +1,5 @@
+@use "@/shared/assets/styles" as mixins;
+
+.anime-ui {
+    @include mixins.whFull();
+}
