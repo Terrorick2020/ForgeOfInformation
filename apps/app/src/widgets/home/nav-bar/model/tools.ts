@@ -1,9 +1,5 @@
 import { appRoutes } from "@/shared";
-
-interface INavBarLink {
-  title: string;
-  href: string;
-}
+import type { INavBarLink } from "./types";
 
 export const navBarLinks: INavBarLink[] = [
   {
@@ -17,5 +13,7 @@ export const navBarLinks: INavBarLink[] = [
   {
     title: "Помощьник",
     href: `${appRoutes.home.glob}/${appRoutes.home.local.chat}`,
-  }
+  },
 ];
+
+export const userHref = `${appRoutes.home.glob}/${appRoutes.home.local.profile}`;

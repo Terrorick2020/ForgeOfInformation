@@ -8,6 +8,7 @@
   --theme-unmixer-color: transparent;
   --theme-mixer-color: transparent;
 
+  --root-info-color: #5a42d1;
   --root-success-color: #00ebc7;
   --root-warning-color: #faae2b;
   --root-error-color: #f4446d;
@@ -125,4 +126,5 @@
 
 html, body, #root {
   background: var(--theme-bg-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }

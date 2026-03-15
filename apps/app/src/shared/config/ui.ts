@@ -20,3 +20,5 @@ export const rootAnimeFunc = {
   css: "ease-in",
   motion: "easeIn"
 } as const;
+
+export const rootMinSize: number = 650;

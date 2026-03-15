@@ -20,7 +20,7 @@ function AuthBasePanel({
   return (
     <InnerBlockUi innerType={EIBUiInnerType.Inline}>
       <ScrollBlock addClass={styles["add-scrl-class"]}>
-        <div className={styles["scrl-box"]}>
+        <main className={styles["scrl-box"]}>
           <AnimeUi
             addClass={styles["add-anime-class"]}
             vertType={EAnimeVertType.FromTop}
@@ -41,7 +41,7 @@ function AuthBasePanel({
               </div>
             </InnerBlockUi>
           </AnimeUi>
-        </div>
+        </main>
       </ScrollBlock>
     </InnerBlockUi>
   );

@@ -5,6 +5,8 @@ svg {
 }
 
 svg {
+  color: var(--theme-icon-main-color);
+
   .main {
     fill: var(--theme-icon-main-color);
     color: var(--theme-icon-main-color);
@@ -25,6 +27,28 @@ svg {
     color: var(--theme-icon-tertiary-color);
   }
 }
+
+button, button > * {
+  background: var(--theme-btn-bg-color);
+  color: var(--theme-btn-font-color);
+
+  svg, img {
+    background: transparent !important;
+  }
+}
+
+input, input > * {
+  color: var(--theme-input-font-color);
+  background: var(--theme-input-bg-color);
+  border-color: var(--theme-stroke-color);
+  outline-color: var(--theme-stroke-color);
+  font-weight: 500;
+
+  &::placeholder {
+    color: var(--theme-input-placeholder-color);
+  }
+}
+
 
 figure,
 img,

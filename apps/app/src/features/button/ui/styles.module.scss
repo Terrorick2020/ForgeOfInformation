@@ -27,6 +27,8 @@
     &__ctx {
         border: none;
         outline: none;
+        line-height: 2.5em;
+        letter-spacing: 0.12em;
         padding-inline: clamp(0.6rem, 1vmax, 1rem);
         gap: clamp(1rem, 1.2vmax, 1.25rem);
         color: inherit;

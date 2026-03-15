@@ -1,0 +1,58 @@
+@use "@/shared/assets/styles" as mixins;
+
+.notifi {
+    position: relative;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
+    @include mixins.whFull();
+
+    &__body {
+        z-index: 10;
+        background: transparent;
+        @include mixins.whFull();
+        @include mixins.tmplFlex();
+    }
+
+    &__ctx {
+        position: absolute;
+        background: transparent;
+        z-index: 20;
+        gap: 1.5vh;
+        width: 30%;
+        padding-block: clamp(0.75rem, 2.271vh, 1.25rem);
+        padding-inline: clamp(1.25rem, 1.651vw, 1.75rem);
+        @include mixins.tmplFlex(column);
+
+        @media (max-width: 1348px) {
+            width: 40%;
+        }
+
+        @media (max-width: 1198px) {
+            width: 45%;
+        }
+
+        @media (max-width: 1024px) {
+            width: 50%;
+        }
+
+        @media (max-width: 825px) {
+            width: 50%;
+        }
+
+        @media (max-width: 650px) {
+            width: 80%;
+        }
+
+        @media (max-width: 425px) {
+            width: 90%;
+        }
+
+        @media (max-width: 375px) {
+            width: 95%;
+        }
+
+        &.top {
+            flex-direction: column-reverse;
+        }
+    }
+}

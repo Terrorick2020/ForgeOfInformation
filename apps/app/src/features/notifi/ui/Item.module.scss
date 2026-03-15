@@ -1,0 +1,113 @@
+@use "@/shared/assets/styles" as funcs;
+@use "@/shared/assets/styles" as mixins;
+
+.notifi-item {
+  --ni-base-color: var(--theme-card-color, black);
+  --ni-mixer-color: color-mix(
+    in srgb,
+    var(--theme-mixer-color, white) 20%,
+    transparent 80%
+  );
+  --ni-pad-size: #{funcs.pxToRem(15)};
+
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: clamp(0.45rem, 0.55vmax, 0.75rem);
+  border: funcs.pxToRem(2) solid var(--ni-base-color);
+  background: color-mix(
+    in srgb,
+    var(--ni-base-color) 45%,
+    var(--ni-mixer-color) 55%
+  );
+  backdrop-filter: blur(7.5px);
+  padding-inline: var(--ni-pad-size);
+  padding-block: calc(var(--ni-pad-size) / 2);
+
+  &.info {
+    --ni-base-color: var(--root-info-color, blue);
+  }
+
+  &.success {
+    --ni-base-color: var(--root-success-color, green);
+  }
+
+  &.warning {
+    --ni-base-color: var(--root-warning-color, yellow);
+  }
+
+  &.error {
+    --ni-base-color: var(--root-error-color, red);
+  }
+
+  &__ctx {
+    --ni-ctx-icon-size: clamp(2rem, 2.33vmax, 2.5rem);
+
+    display: grid;
+    grid-template-columns: var(--ni-ctx-icon-size) auto calc(
+        var(--ni-ctx-icon-size) * 1.15
+      );
+    gap: clamp(0.55rem, 0.95vw, 0.95rem);
+    align-items: flex-start;
+    @include mixins.whFull();
+
+    .icon,
+    .content,
+    .event {
+      @include mixins.whFull();
+    }
+
+    .icon svg {
+      width: var(--ni-ctx-icon-size);
+      height: var(--ni-ctx-icon-size);
+      color: color-mix(
+        in srgb,
+        var(--ni-base-color) 60%,
+        var(--theme-unmixer-color, white) 40%
+      );
+    }
+
+    .content {
+      gap: clamp(0.25rem, 1.2vh, 0.55rem);
+      @include mixins.tmplFlex(column);
+
+      > * {
+        width: 100%;
+        text-align: start;
+        color: var(--theme-headline-color);
+      }
+
+      &__title {
+        font-weight: 500;
+        letter-spacing: 1px;
+        @include mixins.tmplTxtHide();
+
+        @media (max-width: 600px) {
+          display: none;
+        }
+      }
+
+      &__txt {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        white-space: normal;
+      }
+    }
+
+    .event {
+      .add-icon-btn-class {
+        --ib-base-bg: transparent;
+        --ib-base-color: transparent;
+
+        background: transparent;
+        width: 100%;
+
+        .svgr {
+          rotate: 45deg;
+        }
+      }
+    }
+  }
+}

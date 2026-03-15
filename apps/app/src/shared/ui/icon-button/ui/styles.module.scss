@@ -1,3 +1,33 @@
+@use "@/shared/assets/styles" as funcs;
+
 .icon-button-ui {
-    padding: 0.25rem;
+  --ib-base-color: var(--theme-btn-bg-color);
+  --ib-base-bg: color-mix(in srgb, var(--ib-base-color) 70%, transparent 30%);
+
+  width: auto;
+  min-height: funcs.pxToRem(35);
+  height: auto;
+  max-height: funcs.pxToRem(65);
+  padding: 0.25rem;
+  outline: none;
+  border-radius: clamp(0.4rem, 0.525vmax, 0.7rem);
+  background: var(--ib-base-bg);
+  border: 0.15rem solid var(--ib-base-color);
+  transition: transform 0.1s linear;
+
+  &:hover {
+    box-shadow: 0 0 0.2rem var(--ib-base-bg);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+  svg,
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: inline-block;
+  }
 }

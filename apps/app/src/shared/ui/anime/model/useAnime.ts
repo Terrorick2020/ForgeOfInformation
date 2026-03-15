@@ -78,15 +78,15 @@ export const useAnime: TUseAnime = (
     opacity: 1,
     scale: 1,
   };
-  const exitionData: MotionProps["exit"] = {
-    ...animateData,
-    transition: { delay: 0, duration: (resData.tmplData.time / 1000) * 0.75 },
-  };
   const initialData: MotionProps["initial"] = {
     x: resData.x,
     y: resData.y,
     opacity: resData.tmplData.initOpacity,
     scale: withScale ? resData.tmplData.scale : 1,
+  };
+  const exitionData: MotionProps["exit"] = {
+    ...initialData,
+    transition: { delay: 0, duration: (resData.tmplData.time / 1000) * 0.5 },
   };
   const transitData: MotionProps["transition"] = {
     duration: resData.tmplData.time / 1000,

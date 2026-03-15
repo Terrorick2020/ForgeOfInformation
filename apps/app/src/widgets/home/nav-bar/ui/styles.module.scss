@@ -1,20 +1,72 @@
 @use "@/shared/assets/styles" as mixins;
 
-
 .home-nav-bar {
-    background: var(--theme-card-color);
+  background: var(--theme-card-color);
+  @include mixins.whFull();
+
+  &__ctx {
+    gap: 0.8rem;
     @include mixins.whFull();
+    @include mixins.tmplFlex(row, space-between);
 
-    &__ctx {
-        @include mixins.whFull();
-        @include mixins.tmplFlex(row, space-between);
+    .navigate {
+      width: auto;
 
-        .navigate ul {
-            list-style: none;
+      &__list {
+        list-style: none;
+        gap: clamp(1rem, 5vw, 5rem);
+        @include mixins.tmplFlex();
+
+        .link {
+          --this-decor-w: 0;
+
+          position: relative;
+          color: var(--theme-headline-color);
+          display: grid;
+          grid-template-rows: 1fr var(--this-decor-w);
+
+          &:hover,
+          &.selected {
+            --this-decor-w: 100%;
+          }
+
+          &__txt {
+            color: currentColor;
+            -webkit-user-drag: none;
+            user-select: none;
+            @include mixins.fluidText(26, 22);
+          }
+
+          &__decor {
+            position: absolute;
+            left: 0;
+            bottom: -0.2rem;
+            width: var(--this-decor-w);
+            height: 0.15rem;
+            border-radius: 1em;
+            background: var(--theme-subheadline-color, currentColor);
+            transform-origin: left;
+            transition:
+              width 0.5s ease,
+              height 0.1s linear;
+          }
         }
-
-        .btns {
-
-        }
+      }
     }
+
+    .btns {
+      height: 60%;
+      gap: 1vw;
+      @include mixins.tmplFlex(row, flex-end);
+
+      a {
+        display: contents;
+      }
+
+      &__item {
+        height: 100%;
+        aspect-ratio: 1 / 1;
+      }
+    }
+  }
 }
