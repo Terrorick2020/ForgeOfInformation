@@ -5,3 +5,4 @@ export * from "./perm-guard";
 export * from "./notifi";
 
 export * from "./auth";
+export * from "./home";

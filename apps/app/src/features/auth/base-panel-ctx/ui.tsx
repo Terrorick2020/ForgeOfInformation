@@ -2,7 +2,7 @@ import { AuthBasePanelCtx, useCtx } from "./modle";
 import type { JSX } from "react";
 import type { ITmplCompProps } from "@/shared";
 
-export function ABPCtxProvider({ children }: ITmplCompProps): JSX.Element {
+function ABPCtxProvider({ children }: ITmplCompProps): JSX.Element {
   const ctxValue = useCtx();
 
   return (

@@ -1,0 +1,52 @@
+@use "@/shared/assets/styles" as mixins;
+
+.home-store-tmpl {
+    --this-panel-h: 11.5vh;
+
+    position: relative;
+    @include mixins.whFull();
+
+    .panel {
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        left: 0;
+        top: 0;
+        height: var(--this-panel-h);
+        background: transparent;
+        backdrop-filter: blur(1px);
+        display: grid;
+        grid-template-columns: auto 100px;
+
+        &__ctx {
+            border-radius: var(--root-widget-br);
+            background: var(--theme-card-color);
+            @include mixins.whFull();
+
+            .assets {
+                @include mixins.whFull();
+                @include mixins.tmplFlex(row, space-between);
+            }
+        }
+
+        &__add {
+            background: transparent;
+            // @include mixins.whFull();
+        }
+    }
+
+    .body {
+        @include mixins.whFull();
+
+        .add-scrl-class {
+            --scrl-parrent-bg: var(--theme-bg-color, transparent);
+
+            .scrl-body {
+                height: auto;
+                width: 100%;
+                background: transparent;
+                margin-top: calc(var(--this-panel-h) + 5px);
+            }
+        }
+    }
+}

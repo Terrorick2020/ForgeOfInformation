@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64.00pt" height="64.00pt" viewBox="0 0 64.00 64.00" color="#232946" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet">
+    <g>
+        <path fill="currentColor" fill-rule="nonzero" fill-opacity="1" d="M10.2 6.3c-5.1 5.2-6.1 6.6-4.9 7.5 1.1.9 2.2.3 5.3-2.9l3.9-4 .5 28.3c.4 24.3.7 28.3 2 28.3s1.6-4 2-28.3l.5-28.3 3.9 4c3.1 3.2 4.2 3.8 5.3 2.9 1.2-.9.2-2.3-4.9-7.5C20.4 2.8 17.3 0 17 0s-3.4 2.8-6.8 6.3"/>
+        <path fill="currentColor" fill-rule="nonzero" fill-opacity="1" d="M45.7.6C45.3 1 45 14 45 29.4v28l-4.3-4.2c-3.6-3.5-4.6-4-5.5-2.9-.9 1 .2 2.7 5.3 7.7l6.5 6.4 6.5-6.4c5.1-5 6.2-6.7 5.3-7.7-.9-1.1-1.9-.6-5.4 2.8L49 57.4 48.8 29C48.5 2.1 48.1-1.8 45.7.6"/>
+    </g>
+</svg>

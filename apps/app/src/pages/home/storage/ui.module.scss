@@ -1,0 +1,8 @@
+@use "@/shared/assets/styles" as mixins;
+
+.storage-page {
+  overflow: hidden;
+  background: var(--theme-bg-color);
+  @include mixins.whFull();
+  @include mixins.tmplFlex();
+}
