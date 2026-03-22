@@ -14,7 +14,7 @@ function LogoUi({
         <LogoSvgr />
       </Link>
       <div className={styles["logo-ui__txt"]}>
-        <h5>ИнфоКузница</h5>
+        <h5 className={styles["headline"]}>ИнфоКузница</h5>
         <p>Обработка информации</p>
       </div>
     </div>

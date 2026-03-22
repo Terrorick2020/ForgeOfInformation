@@ -1,0 +1,76 @@
+@use "@/shared/assets/styles" as *;
+
+.checkbox-ui {
+  --ci-stroke-color: var(--theme-icon-stroke-color, #323232);
+  --ci-main-color: var(--theme-icon-main-color, #fff);
+  --ci-base-bg: var(--theme-icon-secondary-color, #ccc);
+  --ci-focus-bg: var(--theme-icon-highlight-color, #2d8cf0);
+  --ci-ctx-min-size: 20;
+  --ci-ctx-max-size: 50;
+  --ci-ctx-base-fs: 2.5;
+  --ci-ctx-base-bs: #{pxToRem(3)};
+
+  width: auto;
+  height: auto;
+  gap: 0.75rem;
+  @include tmplFlex();
+
+  .container {
+    min-width: calc(var(--ci-ctx-min-size, 20) * 1rem / $baseRemDelta);
+    min-height: calc(var(--ci-ctx-min-size, 20) * 1rem / $baseRemDelta);
+    width: auto;
+    height: 100%;
+    max-width: calc(var(--ci-ctx-max-size, 20) * 1rem / $baseRemDelta);
+    max-height: calc(var(--ci-ctx-max-size, 20) * 1rem / $baseRemDelta);
+    aspect-ratio: 1 / 1;
+    position: relative;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      @include whFull();
+
+      &:checked ~ .checkmark {
+        background-color: var(--ci-focus-bg);
+      }
+
+      &:checked ~ .checkmark:after {
+        display: block;
+      }
+    }
+
+    .checkmark {
+      --this-checkmark-fs: calc(
+        var(--ci-ctx-base-fs, 2.5) * 1rem / #{$baseRemDelta}
+      );
+
+      width: 100%;
+      height: 100%;
+      position: relative;
+      border: pxToRem(2) solid var(--ci-stroke-color);
+      border-radius: 5px;
+      box-shadow: var(--ci-ctx-base-bs, 3px) var(--ci-ctx-base-bs, 3px) var(--ci-stroke-color);
+      background-color: var(--ci-base-bg);
+      transition: all 0.3s;
+      font-size: var(--this-checkmark-fs);
+
+      &:after {
+        content: "";
+        width: 30%;
+        height: 60%;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        display: none;
+        border: solid var(--ci-main-color);
+        border-width: 0 1em 1em 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+  }
+
+  .text {
+    translate: 0 calc(var(--ci-ctx-base-bs, 3px));
+  }
+}

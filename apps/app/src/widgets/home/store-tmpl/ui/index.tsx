@@ -5,50 +5,59 @@ import {
   IconButtonUi,
 } from "@/shared";
 
-import { ScrollBlock } from "@/features";
-import type { JSX } from "react";
+import { ScrollBlock, Search, HomeStorageCtx } from "@/features";
+import { useContext, type JSX } from "react";
 import type { ISTmplProps } from "./types";
 import styles from "./styles.module.scss";
+import TwoUpDownSvgr from "@/shared/assets/icons/two-up-down.svg?react";
+import HamburgerSvgr from "@/shared/assets/icons/hamburger.svg?react";
 
 function HomeStoreTmpl({
   children,
-  panelCtx,
-  panelAdd,
+  mainAdd = undefined,
+  asideAdd = undefined,
 }: ISTmplProps): JSX.Element {
+  const context = useContext(HomeStorageCtx);
+
   return (
     <InnerBlockUi innerType={EIBUiInnerType.Inline}>
-      <main className={styles["home-store-tmpl"]}>
-        <article className={styles["panel"]}>
+      <div className={styles["home-store-tmpl"]}>
+        <section className={styles["panel"]}>
           <InnerBlockUi innerType={EIBUiInnerType.Block}>
             <div className={styles["panel__ctx"]}>
-              <InnerBlockUi boxType={EIBUiBoxType.Local}>
-                <div className={styles["assets"]}>
-                  {panelCtx}
-                </div>
-              </InnerBlockUi>
-            </div>
-            <div className={styles["panel__add"]}>
-              <InnerBlockUi
-                boxType={EIBUiBoxType.Local}
-                innerType={EIBUiInnerType.Inline}
+              <main className={styles["main"]}>
+                <InnerBlockUi boxType={EIBUiBoxType.Local}>
+                  <div className={styles["main__box"]}>
+                    <Search
+                      addClass={styles["add-h-class"]}
+                      placeholder="Поиск"
+                      value={context.searchValue}
+                      onChange={context.onSearchChange}
+                    />
+                    {mainAdd}
+                    <IconButtonUi
+                      addClass={styles["add-h-class"]}
+                      icon={<TwoUpDownSvgr />}
+                      onClick={context.toggleSortDir}
+                    />
+                  </div>
+                </InnerBlockUi>
+              </main>
+              <aside
+                className={`${styles["aside"]} ${asideAdd ? styles["aside-add"] : ""}`}
               >
-                <div>
-                  <IconButtonUi
-                    addClass=""
-                    icon={<></>}
-                  />
-                  {panelAdd}
-                </div>
-              </InnerBlockUi>
+                <IconButtonUi icon={<HamburgerSvgr />} />
+                {asideAdd}
+              </aside>
             </div>
           </InnerBlockUi>
-        </article>
-        <article className={styles["body"]}>
+        </section>
+        <section className={styles["body"]}>
           <ScrollBlock addClass={styles["add-scrl-class"]}>
             <div className={styles["scrl-body"]}>{children}</div>
           </ScrollBlock>
-        </article>
-      </main>
+        </section>
+      </div>
     </InnerBlockUi>
   );
 }

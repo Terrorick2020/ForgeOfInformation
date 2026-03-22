@@ -1,13 +1,13 @@
 import { InnerBlockUi, EIBUiInnerType, LogoUi, IconButtonUi } from "@/shared";
 import { navBarLinks, userHref, useSettings } from "../model";
+import { ToggleTheme } from '@/features';
 import { Link } from "react-router-dom";
 import type { JSX } from "react";
 import styles from "./styles.module.scss";
-import ThemeSvgr from "@/shared/assets/icons/theme.svg?react";
 import UserSvgr from "@/shared/assets/icons/user.svg?react";
 
 function HomeNavBar(): JSX.Element {
-  const { navKey, getLinkAddClass, handleToggleTheme } = useSettings();
+  const { navKey, getLinkAddClass } = useSettings();
 
   return (
     <header className={styles["home-nav-bar"]}>
@@ -29,11 +29,7 @@ function HomeNavBar(): JSX.Element {
             </ul>
           </nav>
           <div className={styles["btns"]}>
-            <IconButtonUi
-              addClass={styles["btns__item"]}
-              icon={<ThemeSvgr />}
-              onClick={handleToggleTheme}
-            />
+            <ToggleTheme />
             <Link to={userHref}>
               <IconButtonUi
                 addClass={styles["btns__item"]}

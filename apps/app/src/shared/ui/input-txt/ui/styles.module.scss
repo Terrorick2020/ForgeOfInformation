@@ -2,7 +2,7 @@
 @use "@/shared/assets/styles" as mixins;
 
 .input-txt-ui {
-    --base-inp-txt-h: #{funcs.pxToRem(30)};
+    --base-inp-txt-h: #{funcs.pxToRem(25)};
 
     width: 100%;
     height: var(--base-inp-txt-h);
@@ -12,9 +12,18 @@
     border-radius: clamp(0.7rem, 0.78vmax, 0.9rem);
     border: 1.75px solid transparent;
     overflow: hidden;
+    @include mixins.tmplFlex();
 
     span {
         display: block;
+        height: 100%;
+        @include mixins.tmplFlex();
+
+        > * {
+            height: 80%;
+            object-fit: contain;
+            width: auto;
+        }
     }
 
     &:hover {

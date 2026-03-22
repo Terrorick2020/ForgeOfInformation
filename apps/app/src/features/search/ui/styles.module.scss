@@ -1,0 +1,29 @@
+@use "@/shared/assets/styles" as funcs;
+
+.search {
+  width: 100%;
+  height: funcs.pxToRem(30);
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
+  background: var(--theme-input-bg-color);
+  border-radius: var(--root-feature-br);
+
+  .mgnf-svgr {
+    color: var(--theme-icon-highlight-color);
+  }
+
+  .add-icbtn-class {
+    --ib-base-color: var(--root-error-color);
+
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    min-width: 0;
+    scale: 0.75;
+  }
+
+  .plus-svgr {
+    rotate: 45deg;
+  }
+}

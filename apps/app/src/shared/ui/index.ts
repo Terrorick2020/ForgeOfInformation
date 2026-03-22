@@ -4,3 +4,4 @@ export * from "./input-txt";
 export * from "./spinner";
 export * from "./logo";
 export * from "./icon-button";
+export * from "./checkbox";

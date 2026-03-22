@@ -1,3 +1,5 @@
+@use "@/shared/assets/styles" as funcs;
+
 img,
 svg {
   touch-action: none;
@@ -6,6 +8,10 @@ svg {
 
 svg {
   color: var(--theme-icon-main-color);
+
+  .stroke {
+    stroke: var(--theme-icon-stroke-color);
+  }
 
   .main {
     fill: var(--theme-icon-main-color);
@@ -28,16 +34,19 @@ svg {
   }
 }
 
-button, button > * {
+button,
+button > * {
   background: var(--theme-btn-bg-color);
   color: var(--theme-btn-font-color);
 
-  svg, img {
+  svg,
+  img {
     background: transparent !important;
   }
 }
 
-input, input > * {
+input,
+input > * {
   color: var(--theme-input-font-color);
   background: var(--theme-input-bg-color);
   border-color: var(--theme-stroke-color);
@@ -48,7 +57,6 @@ input, input > * {
     color: var(--theme-input-placeholder-color);
   }
 }
-
 
 figure,
 img,
@@ -65,4 +73,16 @@ button,
 input,
 a {
   cursor: pointer;
+}
+
+hr {
+  background: color-mix(
+    in srgb,
+    var(--theme-stroke-color) 70%,
+    var(--theme-mixer-color) 50%
+  );
+  height: funcs.pxToRem(1.5);
+  outline: none;
+  border: none;
+  border-radius: 5rem;
 }

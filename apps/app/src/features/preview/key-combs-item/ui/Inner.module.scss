@@ -1,0 +1,26 @@
+@use "@/shared/assets/styles" as mixins;
+
+.list-inner-item {
+  width: 100%;
+  list-style: inherit;
+
+  .content {
+    width: 100%;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    @include mixins.tmplFlex(row, flex-start);
+
+    @media (max-width: 512px) {
+      gap: 0.3rem;
+    }
+
+    .descreeption:after {
+      content: ":  ";
+    }
+
+    .combination {
+      font-weight: 500;
+      color: var(--root-info-color);
+    }
+  }
+}

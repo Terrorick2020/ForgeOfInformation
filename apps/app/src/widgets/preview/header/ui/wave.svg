@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100.000pt" height="100.000pt" viewBox="0 0 100.000 100.000" color="#232946" preserveAspectRatio="none">
+    <g>
+        <path class="highlight" fill="currentColor" fill-rule="nonzero" fill-opacity="1" d="M0,20 C30,0 70,100 100,80 L100,100 L0,100 Z"/>
+        <path class="stroke" fill="none" fill-rule="nonzero" fill-opacity="1" stroke="black" stroke-width="1.5" d="M0,20 C30,0 70,100 100,80" />
+    </g>
+</svg>

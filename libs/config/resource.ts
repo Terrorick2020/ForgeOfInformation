@@ -81,3 +81,8 @@ export type TMultyResExts =
   | EVideoExts
   | EArchivesExts
   | EOtherExts;
+
+export enum ESortDirection {
+  Direct = "direct",
+  Reverse = "reverse",
+}

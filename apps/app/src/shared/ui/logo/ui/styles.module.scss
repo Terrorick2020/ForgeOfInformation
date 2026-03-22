@@ -32,7 +32,11 @@
     gap: 0.25rem;
 
     > * {
-        @include mixins.tmplTxtHide();
+      @include mixins.tmplTxtHide();
+    }
+
+    .headline {
+      font-weight: 500;
     }
   }
 }

@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, JSX } from "react";
+import type { InputHTMLAttributes, JSX, Ref } from "react";
 import type { ITmplUiProps } from "@/shared";
 
 export type TInputTxtUiEvents = Pick<
@@ -6,9 +6,9 @@ export type TInputTxtUiEvents = Pick<
   "onChange" | "onBlur" | "onFocus" | "onCopy" | "onKeyDown"
 >;
 
-export type TInputTxtUiAtrs = Pick<
+export type TInputTxtUiAttrs = Pick<
   InputHTMLAttributes<HTMLInputElement>,
-  "value" | "placeholder"
+  "value" | "placeholder" | "maxLength"
 >;
 
 export interface IInputTxtUiExpansion {
@@ -21,7 +21,8 @@ export interface IInputTxtUiProps
   extends
     Omit<ITmplUiProps, "children">,
     TInputTxtUiEvents,
-    TInputTxtUiAtrs,
+    TInputTxtUiAttrs,
     IInputTxtUiExpansion {
   addId?: string;
+  ref?: Ref<HTMLInputElement>;
 }

@@ -40,6 +40,8 @@
   .content {
     overflow-x: hidden;
     overflow-y: auto;
+    padding: 0;
+    scrollbar-width: none;
     @include mixins.whFull();
 
     &.scrollable {

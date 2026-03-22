@@ -1,0 +1,19 @@
+@use "@/shared/assets/styles" as mixins;
+
+.preview-page {
+  overflow: hidden;
+  background: var(--theme-bg-color);
+  @include mixins.whFull();
+  @include mixins.tmplFlex();
+
+  .add-scrl-class {
+    --scrl-parrent-bg: var(--theme-bg-color, transparent);
+  }
+
+  &__ctx {
+    width: 100%;
+    gap: 7.5vh;
+    flex: 1;
+    @include mixins.tmplFlex(column, flex-start);
+  }
+}

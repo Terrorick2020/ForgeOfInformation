@@ -1,0 +1,7 @@
+@use "@/shared/assets/styles" as mixins;
+
+.bottom-box {
+    width: 100%;
+    gap: 0.5rem;
+    @include mixins.tmplFlex(column, center, flex-start);
+}

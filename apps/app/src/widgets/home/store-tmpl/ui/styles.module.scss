@@ -1,52 +1,78 @@
 @use "@/shared/assets/styles" as mixins;
 
 .home-store-tmpl {
-    --this-panel-h: 11.5vh;
+  --this-panel-h: clamp(5rem, 11.5vh, 6.375rem);
 
-    position: relative;
-    @include mixins.whFull();
+  position: relative;
+  @include mixins.whFull();
 
-    .panel {
-        position: absolute;
-        overflow: hidden;
-        width: 100%;
-        left: 0;
-        top: 0;
-        height: var(--this-panel-h);
-        background: transparent;
-        backdrop-filter: blur(1px);
-        display: grid;
-        grid-template-columns: auto 100px;
+  .panel {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: var(--this-panel-h);
+    background: transparent;
+    backdrop-filter: blur(1px);
 
-        &__ctx {
-            border-radius: var(--root-widget-br);
-            background: var(--theme-card-color);
-            @include mixins.whFull();
+    .panel__ctx {
+      --this-panel-ctx-gap: 0.75rem;
+      --this-panel-elem-h: calc(var(--this-panel-h) / 2);
 
-            .assets {
-                @include mixins.whFull();
-                @include mixins.tmplFlex(row, space-between);
-            }
-        }
+      display: grid;
+      grid-template-columns: auto calc(var(--this-panel-h) / 2);
+      grid-template-rows: 1fr;
+      gap: var(--this-panel-ctx-gap);
+      @include mixins.whFull();
 
-        &__add {
-            background: transparent;
-            // @include mixins.whFull();
-        }
-    }
+      &:has(.aside-add) {
+        grid-template-columns: auto var(--this-panel-h);
+      }
 
-    .body {
+      .main {
+        border-radius: var(--root-widget-br);
+        background: var(--theme-card-color);
         @include mixins.whFull();
 
-        .add-scrl-class {
-            --scrl-parrent-bg: var(--theme-bg-color, transparent);
+        &__box {
+          gap: var(--this-panel-ctx-gap);
+          @include mixins.whFull();
+          @include mixins.tmplFlex(row, space-between);
 
-            .scrl-body {
-                height: auto;
-                width: 100%;
-                background: transparent;
-                margin-top: calc(var(--this-panel-h) + 5px);
-            }
+          .add-h-class {
+            height: var(--this-panel-elem-h);
+          }
         }
+      }
+
+      .aside {
+        gap: var(--this-panel-ctx-gap);
+        @include mixins.whFull();
+        @include mixins.tmplFlex(row, flex-end);
+
+        &.aside-add {
+          justify-content: space-between;
+        }
+
+        > * {
+          height: 100%;
+        }
+      }
     }
+  }
+
+  .body {
+    @include mixins.whFull();
+
+    .add-scrl-class {
+      --scrl-parrent-bg: var(--theme-bg-color, transparent);
+
+      .scrl-body {
+        height: auto;
+        width: 100%;
+        background: transparent;
+        margin-top: calc(var(--this-panel-h) + 5px);
+      }
+    }
+  }
 }

@@ -1,13 +1,13 @@
 import InputTxtUi from "./ui";
 import type {
-  TInputTxtUiAtrs,
+  TInputTxtUiAttrs,
   TInputTxtUiEvents,
   IInputTxtUiExpansion,
 } from "./ui/types";
 
 export {
   InputTxtUi,
-  type TInputTxtUiAtrs,
+  type TInputTxtUiAttrs,
   type TInputTxtUiEvents,
   type IInputTxtUiExpansion,
 };

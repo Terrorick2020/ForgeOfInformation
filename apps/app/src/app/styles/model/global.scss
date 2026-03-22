@@ -3,8 +3,6 @@
 :root {
   --theme-sel-bg-color: none;
   --theme-sel-font-color: none;
-  --theme-scrtr-color: none;
-  --theme-scrth-color: none;
   --theme-unmixer-color: transparent;
   --theme-mixer-color: transparent;
 
@@ -28,28 +26,33 @@
 }
 
 * {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
   @supports (scrollbar-color: auto) {
-    scrollbar-color: var(--theme-scrth-color) var(--theme-scrtr-color);
+    scrollbar-color: transparent transparent;
+  }
+
+  @supports (scrollbar-width: auto) {
+    scrollbar-width: none;
   }
 
   @supports selector(::-webkit-scrollbar) {
     &::-webkit-scrollbar {
-      width: funcs.pxToRem(8);
-      height: 100%;
+      display: none;
     }
   }
 
   @supports selector(::-webkit-scrollbar-track) {
     &::-webkit-scrollbar-track {
-      background: var(--theme-scrtr-color);
+      display: none;
     }
   }
 
   @supports selector(::-webkit-scrollbar-thumb) {
     &::-webkit-scrollbar-thumb {
-      background: var(--theme-scrth-color);
-      border-radius: pxToRem(10);
-      background-clip: padding-box;
+      display: none;
     }
   }
 }
@@ -57,8 +60,6 @@
 [data-theme="light"] {
   --theme-sel-bg-color: #eebbc3eb;
   --theme-sel-font-color: #fffffee9;
-  --theme-scrtr-color: #c6962f;
-  --theme-scrth-color: #8c7851;
 
   --theme-unmixer-color: #1e233ad5;
   --theme-mixer-color: #f1f1f6d0;
@@ -92,8 +93,6 @@
 [data-theme="dark"] {
   --theme-sel-bg-color: #3b8d6be0;
   --theme-sel-font-color: #a4a8b3;
-  --theme-scrtr-color: #0f0e17;
-  --theme-scrth-color: #373149;
 
   --theme-unmixer-color: #f1f1f6d0;
   --theme-mixer-color: #1e233ad5;
@@ -124,7 +123,8 @@
   --theme-icon-tertiary-color: #2cb67d;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   background: var(--theme-bg-color);
-  transition: background-color 0.5s ease, color 0.5s ease;
 }

@@ -21,6 +21,7 @@ import type { TUseSettings, ILogPswdValue } from ".";
 export const useSettings: TUseSettings = () => {
   const context = useContext(AuthBasePanelCtx);
   const navigate = useNavigate();
+  const [checked, setChecked] = useState<boolean>(false);
   const [showLogin, setShowLogin] = useState<string>("");
   const logPswd = useRef<ILogPswdValue<string>>({
     login: "",
@@ -48,6 +49,10 @@ export const useSettings: TUseSettings = () => {
     setErrValue((prev) => ({ ...prev, pswd: !newValue }));
   };
 
+  const onCheckedChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    setChecked(event.target.checked);
+  };
+
   const onHandleClick = async (_event: MouseEvent<HTMLButtonElement>) => {
     setErrValue({
       login: !logPswd.current.login,
@@ -66,7 +71,7 @@ export const useSettings: TUseSettings = () => {
     const sepStore = new SeparLocalStore<Pick<ISeparLocalStore, "login">>([
       ESeparLocalStore.Login,
     ]);
-    const newSyncValue = sepStore.getValues().login || ""
+    const newSyncValue = sepStore.getValues().login || "";
     syncLoginValues(newSyncValue);
 
     context.handleClick.current = onHandleClick;
@@ -76,5 +81,5 @@ export const useSettings: TUseSettings = () => {
     };
   }, []);
 
-  return { showLogin, errValue, onLoginChange, onPswdChange };
+  return { showLogin, checked, errValue, onLoginChange, onPswdChange, onCheckedChange };
 };

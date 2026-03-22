@@ -1,6 +1,7 @@
 import { useId } from "react";
+import type { TUseSettings } from '.';
 
-export const useSettings = () => {
+export const useSettings: TUseSettings = () => {
   const keyId = useId();
 
   return {
